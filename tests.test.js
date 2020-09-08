@@ -72,7 +72,7 @@ test("Caesar: wrap-around shift", () => {
 });
 
 test("Caesar: negative shift", () => {
-	expect(caesar("dab", -5)).toBe("ywx");
+	expect(caesar("dab", -5)).toBe("yvw");
 });
 
 test("Caesar: don't shift non-alphabet characters", () => {
@@ -80,5 +80,5 @@ test("Caesar: don't shift non-alphabet characters", () => {
 });
 
 test("Caesar: capitals shift", () => {
-	expect(caesar("TuT", 1)).toBe("UwU");
+	expect(caesar("TvT", 1)).toBe("UwU");
 });
