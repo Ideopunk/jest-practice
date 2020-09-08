@@ -1,16 +1,16 @@
-const capitalize = require('./capitalize')
+const capitalize = require("./capitalize");
 const reverseString = require("./reverseString");
-const {add, multiply, subtract, divide} = require("./calculator")
+const { add, multiply, subtract, divide } = require("./calculator");
+const caesar = require("./caesar");
 
 // Capitalize tests
 test('Capitalize: "yo dawg" to "Yo dawg"', () => {
-    expect(capitalize('yo dawg')).toBe("Yo dawg");
+	expect(capitalize("yo dawg")).toBe("Yo dawg");
 });
 
 test('Capitalize: "SUP" to "SUP"', () => {
-    expect(capitalize("SUP")).toBe("SUP");
-})
-
+	expect(capitalize("SUP")).toBe("SUP");
+});
 
 // Reverse string tests
 test("Reverse: but to tub", () => {
@@ -18,44 +18,67 @@ test("Reverse: but to tub", () => {
 });
 
 test("Reverse: 'in girum imus nocte et consumimur igni' to 'ingi rumimusnoc te etcon sumi murig ni'", () => {
-	expect(reverseString("in girum imus nocte et consumimur igni")).toBe("ingi rumimusnoc te etcon sumi murig ni");
+	expect(reverseString("in girum imus nocte et consumimur igni")).toBe(
+		"ingi rumimusnoc te etcon sumi murig ni"
+	);
 });
 
 test("Reverse: ADA to ADA", () => {
 	expect(reverseString("ADA")).toBe("ADA");
 });
 
-
 // Calculator operation tests
 
 test("Calculator: Simple sum", () => {
-    expect(add(2,2)).toBe(4)
-})
+	expect(add(2, 2)).toBe(4);
+});
 
 test("Calculator: Sum negatives", () => {
-    expect(add(-2,-2)).toBe(-4)
-})
+	expect(add(-2, -2)).toBe(-4);
+});
 
 test("Calculator: Simple difference", () => {
-    expect(subtract(6, 4)).toBe(2)
-})
+	expect(subtract(6, 4)).toBe(2);
+});
 
 test("Calcuator: Negative difference", () => {
-    expect(subtract(10, 100)).toBe(-90)
-})
+	expect(subtract(10, 100)).toBe(-90);
+});
 
 test("Calculator: Simple product", () => {
-    expect(multiply(9, 3)).toBe(27)
-})
+	expect(multiply(9, 3)).toBe(27);
+});
 
 test("Calculator: Negative product", () => {
-    expect(multiply(9, -3)).toBe(-27)
-})
+	expect(multiply(9, -3)).toBe(-27);
+});
 
 test("Calculator: Simple quotient", () => {
-    expect(divide(10, 2)).toBe(5)
-})
+	expect(divide(10, 2)).toBe(5);
+});
 
 test("Calculator: Negative quotient", () => {
-    expect(divide(10, -2)).toBe(-5)
-})
+	expect(divide(10, -2)).toBe(-5);
+});
+
+// Caesar tests
+
+test("Caesar: simple shift", () => {
+	expect(caesar("dab", 1)).toBe("ebc");
+});
+
+test("Caesar: wrap-around shift", () => {
+	expect(caesar("dab", 27)).toBe("ebc");
+});
+
+test("Caesar: negative shift", () => {
+	expect(caesar("dab", -5)).toBe("ywx");
+});
+
+test("Caesar: don't shift non-alphabet characters", () => {
+	expect(caesar("woah, what!", 1)).toBe("xpbi, xibu!");
+});
+
+test("Caesar: capitals shift", () => {
+	expect(caesar("TuT", 1)).toBe("UwU");
+});
