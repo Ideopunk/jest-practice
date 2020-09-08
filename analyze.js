@@ -1,15 +1,14 @@
 function analyze(array) {
-	let length = array.length;
+	const length = array.length;
 
-	let min = Math.min(...array)
+	const min = Math.min(...array)
 
-	let max = Math.max(...array);
+	const max = Math.max(...array);
 
-	let sum = array.reduce((sum, current) => sum + current, 0);
-	let average = sum / length
+	const sum = array.reduce((sum, current) => sum + current, 0);
+	const average = sum / length;
 
-	let object = { average, min, max, length };
-	return object;
+	return { average, min, max, length};
 }
 
 module.exports = analyze;

@@ -2,7 +2,7 @@ const capitalize = require("./capitalize");
 const reverseString = require("./reverseString");
 const { add, multiply, subtract, divide } = require("./calculator");
 const caesar = require("./caesar");
-const analyze = require('./analyze');
+const analyze = require("./analyze");
 
 // Capitalize tests
 test('Capitalize: "yo dawg" to "Yo dawg"', () => {
@@ -87,10 +87,19 @@ test("Caesar: capitals shift", () => {
 // Array Analysis tests
 
 test("Analyze: does the object have all its properties?", () => {
-    expect(analyze([1,2,3])).toStrictEqual({
-        average: 2,
-        min: 1,
-        max: 3,
-        length: 3
-    })
-})
+	expect(analyze([1, 2, 3])).toStrictEqual({
+		average: 2,
+		min: 1,
+		max: 3,
+		length: 3,
+	});
+});
+
+test("Analyze: Can it handle a singular list?", () => {
+	expect(analyze([1])).toStrictEqual({
+		average: 1,
+		min: 1,
+		max: 1,
+		length: 1,
+	});
+});
